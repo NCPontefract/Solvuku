@@ -1,6 +1,8 @@
-class Solvuko {
+class Solvuku {
 
   constructor() {
+    this.tiles = [];
+    this.solver = new SolvukuSolver(this);
     this.grid = document.querySelector("#sudoku-grid");
     this.renderGrid();
     console.log("Solvuko initialised.");
@@ -23,17 +25,23 @@ class Solvuko {
     var tile = document.createElement("input");
     var x = (squarePos % 3) * 3 + tilePos % 3;
     var y = (Math.floor(squarePos / 3) * 3) + Math.floor(tilePos / 3);
-    tile.setAttribute("data-x", x);
-    tile.setAttribute("data-y", y);
     tile.type = "number";
     tile.min = 1;
     tile.max = 9;
     tile.maxLength = 1;
-    tile.value = Math.round(Math.random() * 9);
     tile.classList.add("sudoku-tile");
+
+    this.tiles.push(new SolvukuTile(this, tile, x, y));
     return tile;
+  }
+
+  solve() {
+    console.log("Attempting to solve puzzle...");
+    this.solver.solve();
   }
 
 }
 
-window.addEventListener("load", _ => new Solvuko());
+window.addEventListener("load", _ => {
+  window.solvuku = new Solvuku();
+});
