@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#sudoku-grid {
+  padding: 10px;
+  align-self: center;
+  border: 2px solid #009688;
+  box-shadow: 3px 3px 3px 0px rgba(187, 165, 165, 0.3);
+  width: calc(270px + 20px * 3);
+}
+
+.sudoku-square {
+  display: inline-block;
+  margin: 10px;
+  width: 90px;
+}
+
+.sudoku-tile {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #f3f3f3;
+  text-align: center;
+  font-size: 24px;
+}
+
+.sudoku-tile:focus {
+  outline: 2px solid rgba(0, 150, 136, 0.49);
+}
+
+.sudoku-tile::-webkit-outer-spin-button,
+.sudoku-tile::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
