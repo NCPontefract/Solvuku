@@ -11,16 +11,20 @@ class Solvuko {
       this.grid.appendChild(this.renderSquare(i));
   }
 
-  renderSquare(square) {
+  renderSquare(squarePos) {
     var square = document.createElement("div");
     square.classList.add("sudoku-square");
     for(var i = 0; i < 9; i++)
-      square.appendChild(this.renderTile(square, i));
+      square.appendChild(this.renderTile(squarePos, i));
     return square;
   }
 
-  renderTile(square, i) {
+  renderTile(squarePos, tilePos) {
     var tile = document.createElement("input");
+    var x = (squarePos % 3) * 3 + tilePos % 3;
+    var y = (Math.floor(squarePos / 3) * 3) + Math.floor(tilePos / 3);
+    tile.setAttribute("data-x", x);
+    tile.setAttribute("data-y", y);
     tile.type = "number";
     tile.min = 1;
     tile.max = 9;
