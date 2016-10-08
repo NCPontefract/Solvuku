@@ -5,6 +5,8 @@ class Solvuku {
     this.solver = new SolvukuSolver(this);
     this.grid = document.querySelector("#sudoku-grid");
     this.renderGrid();
+    this.solve = this.solve.bind(this);
+    document.querySelector('.solve-button').addEventListener('click', this.solve);
     console.log("Solvuko initialised.");
   }
 

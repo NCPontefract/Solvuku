@@ -35,3 +35,27 @@ body {
 .sudoku-tile::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+.solve-button {
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  display: inline-block;
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.solve-button:focus {
+  outline: none;
+}
+
+.solve-button:active {
+  transform: translateX(-50%) scale(0.98);
+  opacity: 0.9;
+}
